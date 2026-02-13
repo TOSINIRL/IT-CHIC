@@ -44,67 +44,42 @@ const initNavigation = () => {
 };
 
 // ============================================
-// KINETIC TYPOGRAPHY - CURSOR INTERACTION
+// HERO ENTRANCE ANIMATION
 // ============================================
-const initKineticTypography = () => {
-    const kineticTitle = document.getElementById('kineticTitle');
-    if (!kineticTitle) return;
+const initHeroAnimation = () => {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
 
-    const textLines = kineticTitle.querySelectorAll('.text-line');
+    const textLines = heroTitle.querySelectorAll('.text-line');
 
-    // Create individual letter spans for granular control
+    // Reset any existing content/styles
     textLines.forEach(line => {
-        const text = line.textContent;
-        line.innerHTML = '';
-
-        text.split('').forEach((char, index) => {
-            const span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char;
-            span.style.display = 'inline-block';
-            span.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            span.dataset.index = index;
-            line.appendChild(span);
-        });
+        line.style.opacity = '0';
+        line.style.transform = 'translateY(50px)';
     });
 
-    // Mouse move interaction
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    // Animate lines in with a sleek, staggered reveal
+    gsap.to(textLines, {
+        opacity: 1,
+        y: 0,
+        duration: 1.8,
+        stagger: 0.2,
+        ease: 'power4.out',
+        delay: 0.5
     });
 
-    // Animate letters based on cursor proximity
-    const animateLetters = () => {
-        textLines.forEach(line => {
-            const letters = line.querySelectorAll('span');
-            const lineRect = line.getBoundingClientRect();
-
-            letters.forEach((letter) => {
-                const letterRect = letter.getBoundingClientRect();
-                const letterCenterX = letterRect.left + letterRect.width / 2;
-                const letterCenterY = letterRect.top + letterRect.height / 2;
-
-                const distanceX = mouseX - letterCenterX;
-                const distanceY = mouseY - letterCenterY;
-                const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-
-                const maxDistance = 200;
-                const influence = Math.max(0, 1 - distance / maxDistance);
-
-                const moveX = (distanceX / distance) * influence * 15;
-                const moveY = (distanceY / distance) * influence * 15;
-
-                letter.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + influence * 0.1})`;
-            });
+    // Subtle scale breathing effect for "THE WORLD" part only after entrance
+    const emphasis = heroTitle.querySelector('.emphasis');
+    if (emphasis) {
+        gsap.to(emphasis, {
+            scale: 1.05,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: 2.3 // Wait for entrance
         });
-
-        requestAnimationFrame(animateLetters);
-    };
-
-    animateLetters();
+    }
 };
 
 // ============================================
@@ -493,7 +468,7 @@ const init = () => {
 
     // Initialize all features
     initNavigation();
-    initKineticTypography();
+    initHeroAnimation();
     initVideoBackground();
     initScrollAnimations();
     initLiquidButtons();
@@ -527,7 +502,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         init,
         initNavigation,
-        initKineticTypography,
+        initHeroAnimation,
         initScrollAnimations,
         showNotification
     };
