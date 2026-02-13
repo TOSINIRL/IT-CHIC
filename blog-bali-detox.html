@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali: A Three-Month Digital Detox | IT Chic Travels Journal</title>
+    <meta name="description"
+        content="A comprehensive 20-point recap of a trip to Bali, Indonesia. From flight routes and hotels to culture, temples, and practical tips.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .article-hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .article-hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -100px auto 100px;
+            padding: 80px;
+            background: white;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+        }
+
+        .article-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: #1A1A1A;
+            line-height: 1.2;
+        }
+
+        .article-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #1A1A1A;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+        }
+
+        .trip-details {
+            background: #f9f9f9;
+            padding: 30px;
+            border-left: 4px solid #D4AF37;
+            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .trip-details strong {
+            color: #1A1A1A;
+            display: inline-block;
+            width: 140px;
+        }
+
+        .trip-details div {
+            margin-bottom: 10px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 100;
+        }
+
+        .btn-back {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1A1A1A;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+            background: #1A1A1A;
+            color: white;
+        }
+
+        .blog-tags {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #EEE;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #f5f5f5;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .tag:hover {
+            background: #1A1A1A;
+            color: white;
+        }
+
+        .numbered-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #D4AF37;
+            font-weight: 700;
+            line-height: 1;
+            min-width: 50px;
+        }
+
+        .item-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 40px 20px;
+                margin-top: -50px;
+            }
+
+            .article-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .back-nav {
+                top: 20px;
+                left: 20px;
+            }
+
+            .numbered-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-nav">
+        <a href="index.html#blog" class="btn-back">← Back to Journal</a>
+    </div>
+
+    <section class="article-hero">
+        <img src="assets/images/bali.png" alt="Bali Digital Detox">
+        <div class="container">
+            <span class="eyebrow"
+                style="color: white; border-color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 3px; font-family: 'Inter', sans-serif; font-size: 0.9rem;">Indonesia</span>
+        </div>
+    </section>
+
+    <article class="article-container">
+        <div class="article-content">
+            <h1>Bali: A Three-Month Digital Detox</h1>
+
+            <p>So it took me 3 months to get my life and post about my trip to Bali with Ms B. I hope it makes planning
+                easier to GO SEE BALI.!!</p>
+
+            <div class="trip-details">
+                <div><strong>Time to plan:</strong> 3 Months</div>
+                <div><strong>Airlines used:</strong> Delta, Scoot Airlines</div>
+                <div><strong>Route taken:</strong> Raleigh – Minneapolis- Japan- Singapore- Bali</div>
+                <div><strong>Hotels:</strong> Hilton Garden inn, Hilton Resort and Equilbria Hotels (private Villa)
+                </div>
+            </div>
+
+            <h2>Here are my top 20 recap and must know details about Bali</h2>
+
+            <div class="numbered-item">
+                <div class="number">01</div>
+                <div class="item-content">
+                    <h3>Getting There</h3>
+                    <p>The journey to Bali is a long one, (28 to 40 hours depending on route) best enjoyed in first
+                        class, premium economy or exit row seats. We looked for the shortest connection within Asia to
+                        get to Bali and settled on the route above.</p>
+                    <p>The immigration process was a bit tiring, AC was out and we were sweating like sacrificial goats
+                        waiting in line to get to our cross city train to Narita airport. The train ride from Haneda to
+                        Narita takes about 90 minutes. We will share more details on our experience in Japan, make sure
+                        you have cash on you, paying with credit cards for bus or train tickets wasn't allowed. PS you
+                        can also fly into Narita depending on airline and flights.</p>
+                    <p>The flight from Narita to Singapore was ~ 7 hours. We broke up our journey and stayed in
+                        Singapore for a day, explored the city and took the flight from Singapore to Bali the following
+                        day. We will share our experience about Singapore in a separate post as well.</p>
+                    <p>Flying into Bali from Singapore took 2.5 hours, is breathtakingly beautiful and worth the long
+                        trip. The Volcanoes, little Islands ohhh my heart!</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">02</div>
+                <div class="item-content">
+                    <h3>The People</h3>
+                    <p>Balinese population is 90% Hindu, 10% Muslim and Christian. About 4 million folks. The culture of
+                        respect, customer service and collaboration is on point here. All the tour drivers will match
+                        you with top notch locally owned spas, restaurants, coffee houses, markets Etc. They look out
+                        for one another and it's just so awesome to see. They treat you well and if you happen to pause,
+                        smile, talk and simply be kind they go way over.</p>
+                    <p>We met a few very entitled Australians and their condescending behaviour exhibited in an
+                        executive lounge but that's a story for another day. My thought was, my guy they are human and
+                        they are responsible for your food and drink. Oponu! aka big dummy! Conversing with some
+                        Balinese people, they confirmed this as well. All in all I love their industrious spirits,
+                        hustle mentality and how they create with their hands.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">03</div>
+                <div class="item-content">
+                    <h3>Transportation</h3>
+                    <p>Motorbikes and cars as there really is no public transportation. I saw many folks rent scooters
+                        but I refuse to play roulette with my life. We had a driver daily. He picked us up from the
+                        airport, drove us all over daily and had an amazing itinerary based on what we asked for and a
+                        few extras. Side-note in some remote areas, we saw no traffic lights, roads are narrow like real
+                        narrow. We used, "discoverbalidriver8@gmail.com"</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">04</div>
+                <div class="item-content">
+                    <h3>Culture</h3>
+                    <p>Balinese celebrate the heck outta their culture! We visited many temples and attended cultural
+                        events. The first temple we visited was built 10th century.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">05</div>
+                <div class="item-content">
+                    <h3>Accommodation</h3>
+                    <p>Day one we got in late and tired so we checked into the Hilton Garden Inn, which is right at the
+                        airport (max of a 4 min drive) to relax. If you use points it was only 5000. ****bargain ** Next
+                        day we moved to Hilton resort. For 2 days. Then we moved to <a
+                            href="http://www.equilibriahotels.com/" target="_blank"
+                            style="color:#D4AF37;">http://www.equilibriahotels.com/</a>. Listen BTM, they spoiled us
+                        rotten. We recommend Ella. She's amazing!! If you book directly with them you get extra perks
+                        like a 1 hr massage for 2 and more. Ella was our butler and we both shed a tear when we got home
+                        and saw no Ella.. Photos below.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">06</div>
+                <div class="item-content">
+                    <h3>Attire</h3>
+                    <p>Pack light attire, such as linen/cotton, shorts, tank tops and a good pair of walking shoes. It's
+                        super humid in Bali.. Exception, when visiting temples and holy places, people please do as they
+                        ask for your shoulders and or knees to be covered. These are sacred spaces, please respect that.
+                        They even provide wraps for free if you forget. Our driver brought fresh laundered wraps for us.
+                    </p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">07</div>
+                <div class="item-content">
+                    <h3>Tranquility</h3>
+                    <p>I enjoyed Ubud more than Seminyak. Ubud is more restful and had better views while Seminyak is
+                        slightly commercialized. Now our villa was hidden and you would never know it's near a street.
+                    </p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">08</div>
+                <div class="item-content">
+                    <h3>Temples</h3>
+                    <p>A visit to Bali without seeing a few temples will be incomplete. Our first one was "The heaven's
+                        gate(Batuan Village Temple). You pay 10,000 Rupiah to get your wrap and enter. This temple was
+                        build in the 10th century. Our driver and guide is simply amazing. If there is one thing I will
+                        tell anyone coming to these parts; get a driver. No don't rent a scooter, no don't try doing
+                        cabs or grab. Plan an itinerary and a driver is a must.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">09</div>
+                <div class="item-content">
+                    <h3>Wildlife and animals</h3>
+                    <p>If you are scared of monkeys, pray, plan to run back to the car or stay drunk and oblivious. They
+                        are very smart animals. See video in post..</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">10</div>
+                <div class="item-content">
+                    <h3>Nusa Penida</h3>
+                    <p>We went to a remote island called Nusa Penida only accessible from Bali by boat. Ms B got on a
+                        speed boat for the first time ever like a champ... The views were simply out of this world. The
+                        drive around was totally treacherous and if you are easily SCARED, you might lose your breakfast
+                        from fright. See photos.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">11</div>
+                <div class="item-content">
+                    <h3>Heaven's gate</h3>
+                    <p>Money shot photo at heaven's gate. Be prepared to walk A LOT and I mean uphill, why did I try
+                        this type of walking. The drive up the mountain is in a "molue" aka open flat bed truck sitting
+                        on a bench with no seat belts. Trust me you will remember all prayers your grandparents taught
+                        you in this joint. Best part? We still had internet signal..</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">12</div>
+                <div class="item-content">
+                    <h3>Tourists</h3>
+                    <p>On this trip I had a few "da hell is wrong with people" moments. Refusing to cover up at temples
+                        and being rude to service folks. Smh humans! Anyway next.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">13</div>
+                <div class="item-content">
+                    <h3>The coffee</h3>
+                    <p>Ohhhh the coffee was amazing. We went to a coffee plantation. Do not feel pressured to buy coffee
+                        there. It is organic, and expensive but really good. We bought some but then went to the grocery
+                        store and bought store brands. Best bang for your buck.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">14</div>
+                <div class="item-content">
+                    <h3>Food</h3>
+                    <p>The spices, the fruit, the taste of food was awesome and orgasmic. We ate most of our meals at
+                        the villa as they had an amazing selection. After a day of walking 15-20k steps we just wanted
+                        food, a pool and a bed.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">15</div>
+                <div class="item-content">
+                    <h3>My heart captured ♥️♥️</h3>
+                    <p>No matter where you go to, Balinese people are some of the most friendly people I've encountered
+                        along my travels. Very kind, respectful and even when there's a language barrier, they still try
+                        their possible best to either help or educate one about their culture. Really heartwarming how
+                        welcoming these people are.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">16</div>
+                <div class="item-content">
+                    <h3>Places to visit</h3>
+                    <p>We visited Tirta Ganga which was about 3 hours away from Seminyak, a fire and dance celebration,
+                        silver and Batik factory, Heaven's gate, Butterfly park, a few more temples. Check out photos
+                        and videos below.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">17</div>
+                <div class="item-content">
+                    <h3>Protect your coins</h3>
+                    <p>Get cash out of the ATM and bring single USD for tips. Local airlines Read the fine print. Let me
+                        be kind and say #ScootAirlines is special. ***eye-rolls*** We shouldn't complain in America
+                        about baggage fees.Our local airline tickets were purchased 45 days ahead, but they have strict
+                        hand luggage guidelines, yikes!! . So after check in, we had to pay 36 Singapore dollars each
+                        for our 20"rollers. It's 30% cheaper to pay online, however, they collect that discount right
+                        back, by charging a 40 dollar processing fee. *** boxes air ***</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">18</div>
+                <div class="item-content">
+                    <h3>The crafts</h3>
+                    <p>Woodwork, metal carvings, flowers, vegetation were fabulous. There is a huge store there where
+                        you can purchase all kinds of souvenirs. I can't remember the name but all the drivers know it.
+                    </p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">19</div>
+                <div class="item-content">
+                    <h3>The Kara's Spa is a must!</h3>
+                    <p>We had the famous flower bathe, a three hour massage and slept like babies on our way back to the
+                        hotel.</p>
+                </div>
+            </div>
+
+            <div class="numbered-item">
+                <div class="number">20</div>
+                <div class="item-content">
+                    <h3>I would love to go back someday</h3>
+                    <p>Yes it's a long trip but you will forget about that once you see the beauty. I hope you have as
+                        much fun and lil kid joy as we did. To summarize, in the words of Bill Medley and Jennifer
+                        Warnes "dirty dancing soundtrack" I had the time of my life.</p>
+                </div>
+            </div>
+
+            <div class="blog-tags">
+                <span class="tag">#Bali</span>
+                <span class="tag">#Indonesia</span>
+                <span class="tag">#travel</span>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container" style="text-align: center; padding: 40px 0;">
+            <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        gsap.from('.article-container', {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: 'power4.out'
+        });
+    </script>
+</body>
+
+</html>

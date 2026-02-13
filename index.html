@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Chic Travels - Luxury Travel Experiences | v2.0</title>
-    <meta name="description" content="Discover extraordinary journeys with IT Chic Travels. Premium travel experiences, curated group trips, and bespoke itineraries that create unforgettable memories.">
-    
+    <meta name="description"
+        content="Discover extraordinary journeys with IT Chic Travels. Premium travel experiences, curated group trips, and bespoke itineraries that create unforgettable memories.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- GSAP for Advanced Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
-    
+
     <!-- Glassmorphic Navigation -->
     <nav class="nav-glass" id="mainNav">
         <div class="nav-container">
             <div class="logo-container">
-                <img src="assets/images/logo.svg" alt="IT Chic Travels" class="logo">
+                <div class="logo-svg-placeholder">
+                    <svg viewBox="0 0 100 100" class="logo">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                        <path d="M30 70 Q50 20 70 70" fill="none" stroke="currentColor" stroke-width="2" />
+                        <circle cx="50" cy="35" r="10" fill="currentColor" />
+                    </svg>
+                </div>
                 <span class="logo-text">IT CHIC TRAVELS</span>
             </div>
-            
+
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
@@ -37,12 +48,12 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            
+
             <button class="cta-button cta-primary" id="startJourneyBtn">
                 <span class="btn-text">Start Your Journey</span>
                 <span class="btn-icon">✈</span>
             </button>
-            
+
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
                 <span></span>
@@ -50,17 +61,22 @@
             </button>
         </div>
     </nav>
-    
+
     <!-- Cinematic Hero Section with Video Background -->
     <section class="hero-section" id="home">
+        <div class="hero-video-fallback">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=2000"
+                alt="Luxury Travel Hero">
+        </div>
         <div class="video-background">
-            <!-- Video will rotate between destinations -->
-            <video id="heroVideo" autoplay muted loop playsinline>
-                <source src="assets/videos/hero-destinations.mp4" type="video/mp4">
+            <!-- Video fallback for demonstration -->
+            <video id="heroVideo" autoplay muted loop playsinline
+                poster="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=2000">
+                <source src="" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
         </div>
-        
+
         <div class="hero-content">
             <div class="hero-text-container">
                 <h1 class="hero-title kinetic-text" id="kineticTitle">
@@ -71,10 +87,10 @@
                     Make Memories | Reminisce | Repeat
                 </p>
                 <p class="hero-description">
-                    Embark on extraordinary journeys curated for the discerning traveler. 
+                    Embark on extraordinary journeys curated for the discerning traveler.
                     Experience the world through a lens of luxury, authenticity, and wonder.
                 </p>
-                
+
                 <div class="hero-cta-group">
                     <button class="cta-button cta-liquid cta-large">
                         <span class="btn-text">Explore Destinations</span>
@@ -86,15 +102,11 @@
                     </button>
                 </div>
             </div>
-            
-            <!-- Floating scroll indicator -->
-            <div class="scroll-indicator">
-                <span class="scroll-text">Scroll to explore</span>
-                <div class="scroll-line"></div>
-            </div>
+
+
         </div>
     </section>
-    
+
     <!-- Services Section - Bento Box Grid -->
     <section class="services-section" id="services">
         <div class="section-container">
@@ -105,25 +117,26 @@
                     Tailored experiences designed to transform your travel dreams into reality
                 </p>
             </div>
-            
+
             <div class="bento-grid services-grid">
                 <!-- Large Featured Service -->
                 <div class="bento-item bento-large glass-card" data-animate="fade-up">
                     <div class="bento-image">
-                        <img src="assets/images/service-custom-itinerary.jpg" alt="Custom Itinerary Planning">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=1000"
+                            alt="Custom Itinerary Planning">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="bento-content">
                         <div class="floating-icon">
                             <svg class="icon-3d" viewBox="0 0 64 64" fill="none">
-                                <path d="M32 8L8 20L32 32L56 20L32 8Z" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8 28L32 40L56 28" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8 36L32 48L56 36" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 8L8 20L32 32L56 20L32 8Z" stroke="currentColor" stroke-width="2" />
+                                <path d="M8 28L32 40L56 28" stroke="currentColor" stroke-width="2" />
+                                <path d="M8 36L32 48L56 36" stroke="currentColor" stroke-width="2" />
                             </svg>
                         </div>
                         <h3 class="bento-title">Custom Itinerary Planning</h3>
                         <p class="bento-description">
-                            Bespoke travel experiences crafted around your unique preferences, 
+                            Bespoke travel experiences crafted around your unique preferences,
                             interests, and dreams. Every detail meticulously planned.
                         </p>
                         <button class="cta-button cta-liquid cta-small">
@@ -132,18 +145,20 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Medium Service Cards -->
                 <div class="bento-item bento-medium glass-card" data-animate="fade-up" data-delay="100">
                     <div class="bento-image">
-                        <img src="assets/images/service-concierge.jpg" alt="Luxury Concierge">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1000"
+                            alt="Luxury Concierge">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="bento-content">
                         <div class="floating-icon">
                             <svg class="icon-3d" viewBox="0 0 64 64" fill="none">
-                                <circle cx="32" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 48C16 40 23 36 32 36C41 36 48 40 48 48" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="32" cy="24" r="8" stroke="currentColor" stroke-width="2" />
+                                <path d="M16 48C16 40 23 36 32 36C41 36 48 40 48 48" stroke="currentColor"
+                                    stroke-width="2" />
                             </svg>
                         </div>
                         <h3 class="bento-title">24/7 Luxury Concierge</h3>
@@ -156,18 +171,21 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bento-item bento-medium glass-card" data-animate="fade-up" data-delay="200">
                     <div class="bento-image">
-                        <img src="assets/images/service-exclusive.jpg" alt="Exclusive Access">
+                        <img src="https://images.unsplash.com/photo-1544427928-2a9ca99f4c31?auto=format&fit=crop&q=80&w=1000"
+                            alt="Exclusive Access">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="bento-content">
                         <div class="floating-icon">
                             <svg class="icon-3d" viewBox="0 0 64 64" fill="none">
-                                <rect x="16" y="28" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-                                <path d="M24 28V20C24 15.6 27.6 12 32 12C36.4 12 40 15.6 40 20V28" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="40" r="3" fill="currentColor"/>
+                                <rect x="16" y="28" width="32" height="24" rx="2" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M24 28V20C24 15.6 27.6 12 32 12C36.4 12 40 15.6 40 20V28" stroke="currentColor"
+                                    stroke-width="2" />
+                                <circle cx="32" cy="40" r="3" fill="currentColor" />
                             </svg>
                         </div>
                         <h3 class="bento-title">Exclusive Access</h3>
@@ -180,26 +198,27 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Small Service Cards -->
                 <div class="bento-item bento-small glass-card" data-animate="fade-up" data-delay="300">
                     <div class="bento-content">
                         <div class="floating-icon">
                             <svg class="icon-3d" viewBox="0 0 64 64" fill="none">
-                                <path d="M32 8L40 24L56 28L44 40L48 56L32 48L16 56L20 40L8 28L24 24L32 8Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 8L40 24L56 28L44 40L48 56L32 48L16 56L20 40L8 28L24 24L32 8Z"
+                                    stroke="currentColor" stroke-width="2" />
                             </svg>
                         </div>
                         <h3 class="bento-title">Premium Accommodations</h3>
                         <p class="bento-description">Handpicked luxury hotels and resorts.</p>
                     </div>
                 </div>
-                
+
                 <div class="bento-item bento-small glass-card" data-animate="fade-up" data-delay="400">
                     <div class="bento-content">
                         <div class="floating-icon">
                             <svg class="icon-3d" viewBox="0 0 64 64" fill="none">
-                                <path d="M32 12L20 32L32 52L44 32L32 12Z" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 12L20 32L32 52L44 32L32 12Z" stroke="currentColor" stroke-width="2" />
+                                <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2" />
                             </svg>
                         </div>
                         <h3 class="bento-title">Cultural Immersion</h3>
@@ -209,7 +228,49 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Destinations Section -->
+    <section class="destinations-section" id="destinations">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label glass-tag">Popular Destinations</span>
+                <h2 class="section-title">Explore the Extraordinary</h2>
+                <p class="section-description">
+                    Handpicked destinations that offer the perfect blend of luxury and adventure
+                </p>
+            </div>
+
+            <div class="destinations-grid grid-scroll">
+                <div class="destination-card glass-card" data-animate="fade-up">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1000"
+                        alt="Paris">
+                    <div class="dest-content">
+                        <h3>Paris, France</h3>
+                        <p>The City of Light</p>
+                    </div>
+                </div>
+                <div class="destination-card glass-card" data-animate="fade-up" data-delay="100">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000"
+                        alt="Bali">
+                    <div class="dest-content">
+                        <h3>Ubud, Bali</h3>
+                        <p>Tropical Serenity</p>
+                    </div>
+                </div>
+                <div class="destination-card glass-card" data-animate="fade-up" data-delay="200">
+                    <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&q=80&w=1000"
+                        alt="Santorini">
+                    <div class="dest-content">
+                        <h3>Oia, Santorini</h3>
+                        <p>Aegean Paradise</p>
+                    </div>
+                </div>
+                <!-- More destinations as needed -->
+            </div>
+        </div>
+    </section>
+
+
     <!-- Group Trips Section - Bento Box Grid -->
     <section class="group-trips-section" id="group-trips">
         <div class="section-container">
@@ -220,12 +281,13 @@
                     Connect with like-minded travelers on unforgettable journeys around the globe
                 </p>
             </div>
-            
+
             <div class="bento-grid trips-grid">
                 <!-- Featured Trip -->
                 <div class="bento-item bento-xlarge glass-card" data-animate="fade-up">
                     <div class="bento-image">
-                        <img src="assets/images/trip-santorini.jpg" alt="Santorini Sunset Experience">
+                        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&q=80&w=1000"
+                            alt="Santorini Sunset Experience">
                         <div class="image-overlay"></div>
                         <span class="trip-badge">Limited Spots</span>
                     </div>
@@ -236,7 +298,7 @@
                         </div>
                         <h3 class="bento-title">Santorini Sunset Experience</h3>
                         <p class="bento-description">
-                            Immerse yourself in the magic of Greece's most iconic island. 
+                            Immerse yourself in the magic of Greece's most iconic island.
                             Private yacht tours, wine tastings, and sunset dinners overlooking the caldera.
                         </p>
                         <div class="trip-details">
@@ -255,11 +317,12 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Medium Trip Cards -->
                 <div class="bento-item bento-medium glass-card" data-animate="fade-up" data-delay="100">
                     <div class="bento-image">
-                        <img src="assets/images/trip-bali.jpg" alt="Bali Wellness Retreat">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000"
+                            alt="Bali Wellness Retreat">
                         <div class="image-overlay"></div>
                         <span class="trip-badge">New</span>
                     </div>
@@ -277,10 +340,11 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bento-item bento-medium glass-card" data-animate="fade-up" data-delay="200">
                     <div class="bento-image">
-                        <img src="assets/images/trip-morocco.jpg" alt="Moroccan Odyssey">
+                        <img src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&q=80&w=1000"
+                            alt="Moroccan Odyssey">
                         <div class="image-overlay"></div>
                     </div>
                     <div class="bento-content">
@@ -297,10 +361,11 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bento-item bento-medium glass-card" data-animate="fade-up" data-delay="300">
                     <div class="bento-image">
-                        <img src="assets/images/trip-japan.jpg" alt="Japan Cherry Blossom">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1000"
+                            alt="Japan Cherry Blossom">
                         <div class="image-overlay"></div>
                         <span class="trip-badge">Sold Out</span>
                     </div>
@@ -321,7 +386,184 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-label glass-tag">Travel Insights</span>
+                <h2 class="section-title">Latest from the Blog</h2>
+                <p class="section-description">
+                    Expert travel tips, destination guides, and stories from the road
+                </p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- 1. Essaouira -->
+                <article class="blog-card glass-card" data-animate="fade-up">
+                    <div class="blog-image">
+                        <img src="assets/images/morocco_essaouira.png" alt="Essaouira Morocco">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Morocco</span>
+                        <h3 class="blog-title">Essaouira and Argan oil</h3>
+                        <p class="blog-excerpt">Essaouira is a beautiful seaside town in Morocco steeped in history and
+                            is also a UNESCO world heritage site. It's about 2 hours away from Marrakech so I made it a
+                            day trip. The main export from Essaouira are fishing (especially sardines) and Argan fruit
+                            products.</p>
+                        <a href="blog-essaouira.html" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 2. Amsterdam/Tulips -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="100">
+                    <div class="blog-image">
+                        <img src="assets/images/amsterdam_tulips.png" alt="Keukenhof Tulips">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Netherlands</span>
+                        <h3 class="blog-title">Tulips, Keukenhof, and a Quiet Spring</h3>
+                        <p class="blog-excerpt">I'm not really a "flowers" kinda girl but there was something about
+                            tulips I liked. The array of colors were bright and beautiful so my curiosity was peaked.
+                            While planning my trip to check out Amsterdam (not just transiting through) I learned there
+                            was a whole tulip experience about an hour away in Keukenhof. The flowers start blooming in
+                            March till about May. April is prime viewing time. I was supposed to be in Amsterdam,
+                            Rotterdam and Keukenhof this weekend but COVID-19 decided I needed a travel pause. I looked
+                            at my passport tonight, shed an invisible tear and wrote this blog post.</p>
+                        <a href="blog-tulips-keukenhof.html" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 3. Bali -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="200">
+                    <div class="blog-image">
+                        <img src="assets/images/bali.png" alt="Bali Digital Detox">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Indonesia</span>
+                        <h3 class="blog-title">Bali: A Three-Month Digital Detox</h3>
+                        <p class="blog-excerpt">So it took me 3 months to get my life and post about my trip to Bali
+                            with Ms B. I hope it makes planning easier to GO SEE BALI.!!</p>
+                        <a href="blog-bali-detox.html" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 4. Stuttgart Mercedes -->
+                <article class="blog-card glass-card" data-animate="fade-up">
+                    <div class="blog-image">
+                        <img src="assets/images/stuttgart.png" alt="Mercedes Museum">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Germany</span>
+                        <h3 class="blog-title">Mercedes Benz: 8 Floors of Engineering</h3>
+                        <p class="blog-excerpt">A dive into automotive history and detail. Feeling like a chameleon in a
+                            bag of Skittles.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 5. Frankfurt -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="100">
+                    <div class="blog-image">
+                        <img src="assets/images/frankfurt.png" alt="Frankfurt Jazz">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Germany</span>
+                        <h3 class="blog-title">Frankfurt: Herbie Hancock and Jazz</h3>
+                        <p class="blog-excerpt">Seeing a legend live 33 years later. A trip filled with the rhythm of
+                            Frankfurt and pure joy.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 6. Miami -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="200">
+                    <div class="blog-image">
+                        <img src="assets/images/miami.png" alt="Miami South Beach">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">USA</span>
+                        <h3 class="blog-title">Short Stint @ South Beach Miami</h3>
+                        <p class="blog-excerpt">Spontaneous weekend vibes on Collins Avenue. Warm October waters and the
+                            pulse of Miami.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 7. Medellin -->
+                <article class="blog-card glass-card" data-animate="fade-up">
+                    <div class="blog-image">
+                        <img src="assets/images/medellin.png" alt="Medellin Botero">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Colombia</span>
+                        <h3 class="blog-title">Medellin: City of Eternal Spring</h3>
+                        <p class="blog-excerpt">Transformed culture and the bronze masterpieces of Botero. A testament
+                            to urban rebirth.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 8. Nigeria -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="100">
+                    <div class="blog-image">
+                        <img src="assets/images/nigeria.png" alt="Lagos Nigeria">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Nigeria</span>
+                        <h3 class="blog-title">My Naija Trip: The Energy of Lagos</h3>
+                        <p class="blog-excerpt">An eye-opening, insane trip through the heart of Nigeria. Vibrant
+                            markets and chaotic beauty.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 9. Cartagena -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="200">
+                    <div class="blog-image">
+                        <img src="assets/images/cartagena.png" alt="Cartagena Colombia">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Colombia</span>
+                        <h3 class="blog-title">Birthday Trip: The Walls of Cartagena</h3>
+                        <p class="blog-excerpt">Historic charm meets ultramodern luxury in the walled city. A coastal
+                            celebration of culture and style.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 10. Bogota -->
+                <article class="blog-card glass-card" data-animate="fade-up">
+                    <div class="blog-image">
+                        <img src="assets/images/bogota.png" alt="Bogota Colombia">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Colombia</span>
+                        <h3 class="blog-title">Exploring Bogotá: High Altitude Culture</h3>
+                        <p class="blog-excerpt">The vibrant, multicultural capital of Colombia. Art, history, and
+                            high-altitude soul.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+
+                <!-- 11. Cozumel -->
+                <article class="blog-card glass-card" data-animate="fade-up" data-delay="100">
+                    <div class="blog-image">
+                        <img src="assets/images/cozumel.png" alt="Cozumel Mexico">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">Mexico</span>
+                        <h3 class="blog-title">48 Hours in Cozumel: Fun Facts</h3>
+                        <p class="blog-excerpt">Crystal turquoise waters and pristine beach clubs. A quick island escape
+                            to paradise.</p>
+                        <a href="#" class="blog-link">Read Full Story →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="section-container">
@@ -329,47 +571,50 @@
                 <span class="section-label glass-tag">Traveler Stories</span>
                 <h2 class="section-title">What Our Clients Say</h2>
             </div>
-            
+
             <div class="testimonials-carousel">
                 <div class="testimonial-card glass-card" data-animate="fade-up">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">
-                        "IT Chic Travels transformed our honeymoon into an absolute dream. 
-                        Every detail was perfect, from the private villa in Santorini to the 
+                        "IT Chic Travels transformed our honeymoon into an absolute dream.
+                        Every detail was perfect, from the private villa in Santorini to the
                         surprise sunset dinner. We felt like royalty!"
                     </p>
                     <div class="testimonial-author">
-                        <img src="assets/images/avatar-1.jpg" alt="Sarah & Michael">
+                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=200"
+                            alt="Sarah & Michael">
                         <div class="author-info">
                             <h4>Sarah & Michael</h4>
                             <p>Santorini, Greece</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card glass-card" data-animate="fade-up" data-delay="100">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">
-                        "The attention to detail and personalized service exceeded all expectations. 
+                        "The attention to detail and personalized service exceeded all expectations.
                         Our Morocco trip was filled with magical moments we'll treasure forever."
                     </p>
                     <div class="testimonial-author">
-                        <img src="assets/images/avatar-2.jpg" alt="Jennifer">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+                            alt="Jennifer">
                         <div class="author-info">
                             <h4>Jennifer L.</h4>
                             <p>Morocco Adventure</p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card glass-card" data-animate="fade-up" data-delay="200">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">
-                        "As a solo traveler, I felt completely taken care of. The group was amazing, 
+                        "As a solo traveler, I felt completely taken care of. The group was amazing,
                         and the experiences were once-in-a-lifetime. Already booked my next trip!"
                     </p>
                     <div class="testimonial-author">
-                        <img src="assets/images/avatar-3.jpg" alt="Marcus">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
+                            alt="Marcus">
                         <div class="author-info">
                             <h4>Marcus T.</h4>
                             <p>Bali Wellness Retreat</p>
@@ -379,14 +624,127 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-content" data-animate="fade-right">
+                    <span class="section-label glass-tag">Our Story</span>
+                    <h2 class="section-title">Meet IT Chic Travels</h2>
+                    <p class="about-text">
+                        Founded on a passion for discovery and a commitment to excellence, IT Chic Travels is more than
+                        a travel agency.
+                        We are architects of memories, dedicated to crafting unique, immersive, and luxurious
+                        experiences for the global wanderer.
+                    </p>
+                    <p class="about-text">
+                        Our team of experts scours the globe to find hidden gems, exclusive retreats, and authentic
+                        cultural connections
+                        that you won't find on any ordinary booking site.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Destinations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1k+</span>
+                            <span class="stat-label">Happy Travelers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-collage" data-animate="fade-left">
+                    <div class="collage-item collage-main">
+                        <img src="https://images.unsplash.com/photo-1527631746620-b783ab88494c?auto=format&fit=crop&q=80&w=1000"
+                            alt="About IT Chic Travels">
+                    </div>
+                    <div class="collage-item collage-accent">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1000"
+                            alt="Travel Lifestyle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info" data-animate="fade-up">
+                    <h2 class="section-title">Start Your Journey</h2>
+                    <p class="section-description">Ready to plan your next extraordinary adventure? Reach out to our
+                        travel specialists today.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="method-icon">📍</span>
+                            <div class="method-text">
+                                <h4>Our Office</h4>
+                                <p>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="method-icon">📧</span>
+                            <div class="method-text">
+                                <h4>Email Us</h4>
+                                <p>hello@itchictravels.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="method-icon">📱</span>
+                            <div class="method-text">
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container glass-card" data-animate="fade-up" data-delay="100">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" class="glass-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" class="glass-input" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="glass-input">
+                                <option value="" disabled selected>Preferred Destination</option>
+                                <option value="europe">Europe</option>
+                                <option value="asia">Asia</option>
+                                <option value="africa">Africa</option>
+                                <option value="americas">Americas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tell us about your dream trip..." class="glass-input"
+                                rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button cta-liquid">
+                            <span class="btn-text">Submit Inquiry</span>
+                            <span class="liquid-bg"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="section-container">
             <div class="newsletter-content glass-card-large">
                 <h2 class="newsletter-title">Join Our Travel Community</h2>
                 <p class="newsletter-description">
-                    Get exclusive access to new destinations, early-bird pricing, and travel inspiration 
+                    Get exclusive access to new destinations, early-bird pricing, and travel inspiration
                     delivered to your inbox.
                 </p>
                 <form class="newsletter-form">
@@ -399,34 +757,44 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <img src="assets/images/logo.svg" alt="IT Chic Travels" class="footer-logo">
+                    <div class="logo-svg-placeholder footer-logo">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M30 70 Q50 20 70 70" fill="none" stroke="currentColor" stroke-width="2" />
+                            <circle cx="50" cy="35" r="10" fill="currentColor" />
+                        </svg>
+                    </div>
                     <p class="footer-tagline">Make Memories | Reminisce | Repeat</p>
                     <div class="social-links">
                         <a href="#" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
                         </a>
                         <a href="#" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-                                <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
+                                <path
+                                    d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
                         <a href="#" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
@@ -436,7 +804,7 @@
                         <li><a href="#about">About Us</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4 class="footer-heading">Support</h4>
                     <ul class="footer-links">
@@ -446,7 +814,7 @@
                         <li><a href="#terms">Terms of Service</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4 class="footer-heading">Contact</h4>
                     <ul class="footer-contact">
@@ -456,14 +824,15 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 IT Chic Travels. All rights reserved. Crafted with ❤️ for wanderers.</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
+
 </html>

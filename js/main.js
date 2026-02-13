@@ -12,27 +12,27 @@ gsap.registerPlugin(ScrollTrigger);
 const initNavigation = () => {
     const nav = document.getElementById('mainNav');
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+
         // Add scrolled class for glassmorphic effect
         if (currentScroll > 100) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-        
+
         lastScroll = currentScroll;
     });
-    
+
     // Smooth scroll for navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -49,14 +49,14 @@ const initNavigation = () => {
 const initKineticTypography = () => {
     const kineticTitle = document.getElementById('kineticTitle');
     if (!kineticTitle) return;
-    
+
     const textLines = kineticTitle.querySelectorAll('.text-line');
-    
+
     // Create individual letter spans for granular control
     textLines.forEach(line => {
         const text = line.textContent;
         line.innerHTML = '';
-        
+
         text.split('').forEach((char, index) => {
             const span = document.createElement('span');
             span.textContent = char === ' ' ? '\u00A0' : char;
@@ -66,44 +66,44 @@ const initKineticTypography = () => {
             line.appendChild(span);
         });
     });
-    
+
     // Mouse move interaction
     let mouseX = 0;
     let mouseY = 0;
-    
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
-    
+
     // Animate letters based on cursor proximity
     const animateLetters = () => {
         textLines.forEach(line => {
             const letters = line.querySelectorAll('span');
             const lineRect = line.getBoundingClientRect();
-            
+
             letters.forEach((letter) => {
                 const letterRect = letter.getBoundingClientRect();
                 const letterCenterX = letterRect.left + letterRect.width / 2;
                 const letterCenterY = letterRect.top + letterRect.height / 2;
-                
+
                 const distanceX = mouseX - letterCenterX;
                 const distanceY = mouseY - letterCenterY;
                 const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-                
+
                 const maxDistance = 200;
                 const influence = Math.max(0, 1 - distance / maxDistance);
-                
+
                 const moveX = (distanceX / distance) * influence * 15;
                 const moveY = (distanceY / distance) * influence * 15;
-                
+
                 letter.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + influence * 0.1})`;
             });
         });
-        
+
         requestAnimationFrame(animateLetters);
     };
-    
+
     animateLetters();
 };
 
@@ -113,7 +113,7 @@ const initKineticTypography = () => {
 const initVideoBackground = () => {
     const video = document.getElementById('heroVideo');
     if (!video) return;
-    
+
     // Array of destination video sources
     const videoSources = [
         'assets/videos/hero-destinations.mp4',
@@ -121,13 +121,13 @@ const initVideoBackground = () => {
         'assets/videos/hero-bali.mp4',
         'assets/videos/hero-morocco.mp4'
     ];
-    
+
     let currentVideoIndex = 0;
-    
+
     // Rotate videos every 10 seconds with smooth transition
     const rotateVideo = () => {
         const nextIndex = (currentVideoIndex + 1) % videoSources.length;
-        
+
         // Fade out
         gsap.to(video, {
             opacity: 0,
@@ -138,7 +138,7 @@ const initVideoBackground = () => {
                 video.load();
                 video.play();
                 currentVideoIndex = nextIndex;
-                
+
                 // Fade in
                 gsap.to(video, {
                     opacity: 1,
@@ -147,9 +147,13 @@ const initVideoBackground = () => {
             }
         });
     };
-    
-    // Rotate every 10 seconds
-    setInterval(rotateVideo, 10000);
+
+    // Rotate every 10 seconds (Only if we have multiple valid sources)
+    if (videoSources.some(src => !src.includes('hero-destinations.mp4') || src.length > 50)) {
+        setInterval(rotateVideo, 10000);
+    } else {
+        console.log('Video rotation disabled: No external sources provided.');
+    }
 };
 
 // ============================================
@@ -158,10 +162,10 @@ const initVideoBackground = () => {
 const initScrollAnimations = () => {
     // Animate elements with data-animate attribute
     const animatedElements = document.querySelectorAll('[data-animate]');
-    
+
     animatedElements.forEach((element, index) => {
         const delay = element.dataset.delay || 0;
-        
+
         gsap.from(element, {
             scrollTrigger: {
                 trigger: element,
@@ -178,10 +182,10 @@ const initScrollAnimations = () => {
             ease: 'power3.out'
         });
     });
-    
+
     // Parallax effect for bento images
     const bentoImages = document.querySelectorAll('.bento-image img');
-    
+
     bentoImages.forEach(img => {
         gsap.to(img, {
             scrollTrigger: {
@@ -194,10 +198,10 @@ const initScrollAnimations = () => {
             ease: 'none'
         });
     });
-    
+
     // Floating icons animation
     const floatingIcons = document.querySelectorAll('.floating-icon');
-    
+
     floatingIcons.forEach((icon, index) => {
         gsap.to(icon, {
             scrollTrigger: {
@@ -219,17 +223,17 @@ const initScrollAnimations = () => {
 // ============================================
 const initLiquidButtons = () => {
     const liquidButtons = document.querySelectorAll('.cta-liquid, .cta-liquid-outline');
-    
+
     liquidButtons.forEach(button => {
         button.addEventListener('mouseenter', (e) => {
             const liquidBg = button.querySelector('.liquid-bg');
             if (!liquidBg) return;
-            
+
             // Create ripple effect from cursor position
             const rect = button.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             gsap.set(liquidBg, {
                 left: `${x}px`,
                 top: `${y}px`,
@@ -237,11 +241,11 @@ const initLiquidButtons = () => {
                 yPercent: -50
             });
         });
-        
+
         button.addEventListener('mouseleave', () => {
             const liquidBg = button.querySelector('.liquid-bg');
             if (!liquidBg) return;
-            
+
             gsap.to(liquidBg, {
                 left: '50%',
                 top: '50%',
@@ -258,12 +262,12 @@ const initLiquidButtons = () => {
 const initTestimonialsCarousel = () => {
     const carousel = document.querySelector('.testimonials-carousel');
     if (!carousel) return;
-    
+
     const cards = carousel.querySelectorAll('.testimonial-card');
-    
+
     // Auto-scroll testimonials
     let currentIndex = 0;
-    
+
     const scrollToCard = (index) => {
         cards.forEach((card, i) => {
             if (i === index) {
@@ -281,7 +285,7 @@ const initTestimonialsCarousel = () => {
             }
         });
     };
-    
+
     // Auto-rotate every 5 seconds
     setInterval(() => {
         currentIndex = (currentIndex + 1) % cards.length;
@@ -295,24 +299,24 @@ const initTestimonialsCarousel = () => {
 const initNewsletterForm = () => {
     const form = document.querySelector('.newsletter-form');
     if (!form) return;
-    
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const input = form.querySelector('.newsletter-input');
         const button = form.querySelector('.cta-button');
         const email = input.value;
-        
+
         // Validate email
         if (!email || !email.includes('@')) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Disable button during submission
         button.disabled = true;
         button.querySelector('.btn-text').textContent = 'Subscribing...';
-        
+
         // Simulate API call (replace with actual endpoint)
         setTimeout(() => {
             showNotification('Thank you for subscribing! Check your inbox.', 'success');
@@ -330,32 +334,17 @@ const showNotification = (message, type = 'info') => {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        padding: 1rem 2rem;
-        background: ${type === 'success' ? 'var(--color-primary)' : 'var(--color-accent)'};
-        color: white;
-        border-radius: var(--radius-md);
-        box-shadow: var(--glass-shadow-hover);
-        z-index: var(--z-tooltip);
-        font-weight: 600;
-        transform: translateX(400px);
-        transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
+        notification.classList.add('show');
     }, 10);
-    
+
     // Animate out and remove
     setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
+        notification.classList.remove('show');
         setTimeout(() => {
             notification.remove();
         }, 500);
@@ -368,13 +357,13 @@ const showNotification = (message, type = 'info') => {
 const initMobileMenu = () => {
     const toggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (!toggle || !navLinks) return;
-    
+
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('active');
         navLinks.classList.toggle('active');
-        
+
         // Animate hamburger icon
         const spans = toggle.querySelectorAll('span');
         if (toggle.classList.contains('active')) {
@@ -395,7 +384,7 @@ const initMobileMenu = () => {
 const initStartJourneyButton = () => {
     const button = document.getElementById('startJourneyBtn');
     if (!button) return;
-    
+
     button.addEventListener('click', () => {
         // Scroll to contact section or open booking modal
         const contactSection = document.querySelector('#contact');
@@ -414,7 +403,7 @@ const initStartJourneyButton = () => {
 const initCursorTrail = () => {
     const trail = [];
     const trailLength = 20;
-    
+
     // Create trail elements
     for (let i = 0; i < trailLength; i++) {
         const dot = document.createElement('div');
@@ -433,36 +422,36 @@ const initCursorTrail = () => {
         document.body.appendChild(dot);
         trail.push({ element: dot, x: 0, y: 0 });
     }
-    
+
     let mouseX = 0;
     let mouseY = 0;
-    
+
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
-    
+
     const animateTrail = () => {
         let x = mouseX;
         let y = mouseY;
-        
+
         trail.forEach((dot, index) => {
             dot.element.style.left = `${x - dot.element.offsetWidth / 2}px`;
             dot.element.style.top = `${y - dot.element.offsetHeight / 2}px`;
-            
+
             if (index < trail.length - 1) {
                 const nextDot = trail[index + 1];
                 x += (nextDot.x - x) * 0.3;
                 y += (nextDot.y - y) * 0.3;
             }
-            
+
             dot.x = x;
             dot.y = y;
         });
-        
+
         requestAnimationFrame(animateTrail);
     };
-    
+
     animateTrail();
 };
 
@@ -472,7 +461,7 @@ const initCursorTrail = () => {
 const optimizePerformance = () => {
     // Lazy load images
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -483,9 +472,9 @@ const optimizePerformance = () => {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
-    
+
     // Reduce animations on low-power devices
     if (navigator.deviceMemory && navigator.deviceMemory < 4) {
         document.body.classList.add('reduce-motion');
@@ -501,7 +490,7 @@ const init = () => {
         document.addEventListener('DOMContentLoaded', init);
         return;
     }
-    
+
     // Initialize all features
     initNavigation();
     initKineticTypography();
@@ -512,19 +501,19 @@ const init = () => {
     initNewsletterForm();
     initMobileMenu();
     initStartJourneyButton();
-    
+
     // Optional premium features (can be disabled for performance)
     if (window.innerWidth > 768) {
         initCursorTrail();
     }
-    
+
     optimizePerformance();
-    
+
     // Add loaded class to body for CSS transitions
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 100);
-    
+
     console.log('🌍 IT Chic Travels v2.0 initialized successfully!');
 };
 

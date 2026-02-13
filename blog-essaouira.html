@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essaouira and Argan Oil | IT Chic Travels Journal</title>
+    <meta name="description"
+        content="Discover the soul of Essaouira and the intricate world of Argan oil. From UNESCO sites to traditional extraction methods.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .article-hero {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .article-hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -100px auto 100px;
+            padding: 80px;
+            background: white;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: #1A1A1A;
+        }
+
+        .article-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 60px 0 30px;
+            color: #1A1A1A;
+            border-bottom: 1px solid #EEE;
+            padding-bottom: 15px;
+        }
+
+        .article-content p {
+            margin-bottom: 30px;
+        }
+
+        .article-content .highlight-box {
+            background: #F9F9F9;
+            padding: 40px;
+            border-left: 4px solid var(--color-primary, #D4AF37);
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        .extraction-steps {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+        }
+
+        .extraction-steps li {
+            padding: 20px 0;
+            border-bottom: 1px solid #EEE;
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            opacity: 0.5;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #1A1A1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 40px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::after {
+            content: '▶';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 100;
+        }
+
+        .btn-back {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1A1A1A;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+            background: #1A1A1A;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 40px 20px;
+                margin-top: 0;
+            }
+
+            .article-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-nav">
+        <a href="index.html" class="btn-back">← Back to Journal</a>
+    </div>
+
+    <section class="article-hero">
+        <img src="assets/images/morocco_essaouira.png" alt="Essaouira Morocco">
+        <div class="container">
+            <span class="eyebrow" style="color: white; border-color: rgba(255,255,255,0.3)">Morocco</span>
+        </div>
+    </section>
+
+    <article class="article-container">
+        <div class="article-content">
+            <h1>Essaouira and Argan oil</h1>
+
+            <p>Essaouira is a beautiful seaside town in Morocco steeped in history and is also a UNESCO world heritage
+                site. It’s about 2 hours away from Marrakech so I made it a day trip. The main export from Essaouira are
+                fishing (especially sardines) and Argan fruit products. The fishermen bring their catch to the shores
+                where everyone is waiting for fresh seafood. The souks were a maze of stalls with colorful treasures,
+                spices and of course argan products. The Medina was full of leather products, jewelry, pottery,
+                beautiful kaftans and jalabiyas. I bought all of my argan oils, body scrubs, soaps and spices in the
+                medina. A seafood lunch was also easy to eat in the medina.</p>
+
+            <h2>Let’s talk about Argan oil</h2>
+            <p>First forget everything you’ve seen that is said to contain argan oil. Lies and I mean huge ones! Ok
+                fine, maybe a drop per litre is in that shampoo sis.. ? ? ? ? Essaouira to Agadir has an argan corridor
+                of about 300km of argan trees. Argan trees are found only in morocco across 4 cities but the best ones
+                are in Essaouira. June, July and August is Argan harvest season. Argan nuts start out harvested green in
+                color, turn yellow and finally brown.</p>
+
+            <div class="highlight-box">
+                <p>There are 3 ways of harvesting argan fruit:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><strong>By hand:</strong> When ripe, yields best quality</li>
+                    <li><strong>By machinery:</strong> (Companies are here now) this yields medium grade</li>
+                    <li><strong>Goats in tree:</strong> Goats in trees eat the shell off the fruit and regurgitate the
+                        nuts. It yields the lowest grade.</li>
+                </ul>
+            </div>
+
+            <p>There are 2 types of argan oils, cosmetic and edible. You need about 40kg of fruit to yield 2.5kg edible
+                Argan oil and 60kg of fruit yields 5kg of cosmetic oil. So edible argan oil is more expensive than
+                cosmetic. The women in the cooperative work in 2 shifts morning and evening. We were told the ladies
+                rest when off shift. According to the guide they allegedly get 50% of the profits. There are so many
+                products made from the argan fruit. Oils, shampoos, soaps, conditioners, lotions and much more.</p>
+
+            <h2>Manual Extraction Process</h2>
+            <p>The outer shell covering is crushed between two stones revealing the nut. The argan nut is cracked
+                between 2 stones to remove the seed (looks just like shelled almond). The shell is used as a fire
+                accelerant. The seeds are roasted and then crushed in a hand spinner extractor to create a paste. The
+                paste is later separated by hand to reveal the oil.</p>
+
+            <div class="video-placeholder">Watch: Argan ladies extracting oil</div>
+
+            <p>The left-over brown paste after this process is mixed with Olive oil extraction by products to make black
+                soaps. This black soap is used in hammams and I can testify your skin will be baby soft and glow when
+                used. The edible argan oil is mixed with honey and almond in a paste called Amlou. It can be spread on
+                breads and pastries. I bought a good amount to take home. Every part of the argan fruit is used for
+                something.</p>
+
+            <div class="video-placeholder">Watch: Moroccan woman talks everything Argan</div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 IT Chic Travels. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        gsap.from('.article-container', {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: 'power4.out'
+        });
+    </script>
+</body>
+
+</html>
