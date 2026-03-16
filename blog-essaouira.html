@@ -170,7 +170,7 @@
 <body>
 
     <div class="back-nav">
-        <a href="index.html" class="btn-back">← Back to Journal</a>
+        <a href="index.html#blog" class="btn-back">← Back to Journal</a>
     </div>
 
     <section class="article-hero">
@@ -240,12 +240,42 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        gsap.from('.article-container', {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax
+        gsap.to('.article-hero img', {
+            scrollTrigger: {
+                trigger: '.article-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            },
             y: 100,
+            ease: 'none'
+        });
+
+        // Entrance Animation
+        gsap.from('.article-container', {
+            y: 60,
             opacity: 0,
-            duration: 1.5,
-            ease: 'power4.out'
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.2
+        });
+
+        // Staggered reveal
+        gsap.from('.article-content > *', {
+            scrollTrigger: {
+                trigger: '.article-content',
+                start: 'top 80%'
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
         });
     </script>
 </body>

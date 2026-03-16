@@ -1,0 +1,15 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Neutral Background -->
+    <rect width="400" height="120" rx="12" fill="#FAF9F6"/>
+    
+    <!-- Profile Icon -->
+    <g transform="translate(20, 20)">
+        <circle cx="40" cy="40" r="38" fill="#3D9B9D"/> <!-- Turquoise wrap base -->
+        <path d="M40 10C25 10 12 25 12 40C12 55 25 70 40 70C55 70 68 55 68 40C68 25 55 10 40 10Z" fill="#4B3621"/> <!-- Profile -->
+        <path d="M40 10C25 10 15 25 15 40C15 50 20 60 30 65C35 55 45 55 50 65C60 60 65 50 65 40C65 25 55 10 40 10Z" fill="#40B5B8"/> <!-- Headwrap detail -->
+    </g>
+
+    <!-- Logo Text -->
+    <text x="110" y="65" font-family="serif" font-size="32" font-weight="bold" fill="#333">IT CHIC TRAVELS</text>
+    <text x="110" y="90" font-family="sans-serif" font-size="10" font-weight="normal" fill="#666" letter-spacing="0.1em">MAKE MEMORIES | REMINISCE | REPEAT</text>
+</svg>

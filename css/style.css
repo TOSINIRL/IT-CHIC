@@ -156,20 +156,28 @@ button {
     object-fit: cover;
 }
 
-.logo-svg-placeholder {
-    width: 48px;
-    height: 48px;
-    color: var(--color-primary);
-    transition: transform var(--transition-base);
+.logo-image-main {
+    height: 64px;
+    width: auto;
+    display: block;
+    transition: all var(--transition-base);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
-.logo-svg-placeholder:hover {
-    transform: rotate(5deg) scale(1.1);
+.logo-image-main:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
 }
 
-.logo-svg-placeholder svg {
-    width: 100%;
-    height: 100%;
+.nav-glass.scrolled .logo-image-main {
+    height: 52px;
+}
+
+.logo-image-footer {
+    height: 100px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 /* ============================================
@@ -226,19 +234,7 @@ button {
     transform: rotate(5deg) scale(1.05);
 }
 
-.logo-text {
-    font-family: var(--font-display);
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--color-neutral-100);
-    transition: all var(--transition-base);
-}
-
-.nav-glass.scrolled .logo-text {
-    font-size: var(--font-size-lg);
-    color: var(--color-neutral-800);
-}
+/* Logo text removed in favor of unified SVG logo */
 
 .nav-links {
     display: flex;

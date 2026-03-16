@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48 hours in Cozumel Fun Facts | IT Chic Travels Journal</title>
+    <meta name="description" content="Crystal turquoise waters and pristine beach clubs. A quick island escape to paradise.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .article-hero {
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .article-hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            z-index: -1;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: -80px auto 100px;
+            padding: 60px;
+            background: white;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
+        }
+
+        .article-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .article-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #1A1A1A;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 30px 20px;
+                margin-top: 0;
+            }
+
+            .article-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back-nav">
+        <a href="index.html#blog" class="btn-back">← Back to Journal</a>
+    </div>
+
+    <section class="article-hero">
+        <img src="assets/images/cozumel.png" alt="Cozumel Mexico">
+        <div class="container">
+            <span class="eyebrow" style="color: white; border-color: rgba(255,255,255,0.3)">MEXICO</span>
+        </div>
+    </section>
+
+    <article class="article-container">
+        <div class="article-content">
+            <h1>48 hours in Cozumel Fun Facts</h1>
+
+            <ol>
+                <li>It's less than a 3 hr flight from Atlanta. Cozumel is 9x30 miles in size and about 90k people.</li>
+                <li>The hustle by the locals starts from the airport so buy your shuttle ticket to your hotel inside the airport and board outside. It's about 7 to 11 USD, depending on your zone.</li>
+                <li>They have Starbucks, Cartier and other pricey places downtown. I stayed in my lane and bought coffee only.</li>
+                <li>If you are looking to relax and recharge this is the spot, to party and go buck wild please go to Cancun.</li>
+                <li>Downtown is cool but over priced as the cruise ships dock there and everything is in USD.</li>
+                <li>I ate where the locals ate. LaConchita was awesome as you pick from fresh daily caught fish and they fry right away. Open 11-7 pm.</li>
+                <li>For a girl that loves chips and salsa this was fresh n yummy. I also had some "slap yo mama" good coconut prawns.</li>
+                <li>You cannot change USD to pesos without a passport so come prepared. Smh.</li>
+                <li>Fish pedicures are everywhere, uhmm IssANope4Me.</li>
+                <li>You can rent a car to tour the island or get a 4 hour taxi tour for 80 USD. Mexican police are known for pulling folks over for bribes so be ready.</li>
+                <li>There is no Uber here.</li>
+                <li>Plan to pay cash, USD or pesos. Some restaurants don't accept cards. Leave the Amex at home too.</li>
+                <li>Snorkeling is big here and so is golf. You can take a ferry across to Cancun/Isla Mejeres area for these activities.</li>
+                <li>It felt pretty safe even at night.</li>
+                <li>I'm not a huge fan of hotel/resort food when I travel but the breakfast at the Westin was pretty good.</li>
+                <li>Do not hand your phone to anyone to take a picture of you. Well unless you are a sprinter and like to fight.</li>
+                <li>Relaxing on a lounge chair, reading a book with waves crashing, helped reset my brain.</li>
+                <li>You will openly get approached to buy knock offs, weed and pharmacy meds without a prescription just smile, say no and keep walking. Well unless that's your thing. Good luck sha oohh!</li>
+                <li>Tequila tours are all over downtown. Anyway good luck, I am a light weight that knows her place.</li>
+                <li>Yes, I had a short but relaxing getaway and I will gladly go back.</li>
+            </ol>
+
+            <footer class="footer">
+                <div class="container" style="text-align: center; padding: 60px 0;">
+                    <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights
+                        reserved.</p>
+                </div>
+            </footer>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Hero Parallax
+                gsap.to('.article-hero img', {
+                    scrollTrigger: {
+                        trigger: '.article-hero',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: true
+                    },
+                    y: 100,
+                    ease: 'none'
+                });
+
+                // Entrance Animation
+                gsap.from('.article-container', {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: 'power3.out',
+                    delay: 0.2
+                });
+
+                // Staggered reveal
+                gsap.from('.article-content > *', {
+                    scrollTrigger: {
+                        trigger: '.article-content',
+                        start: 'top 80%'
+                    },
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: 'power2.out'
+                });
+            </script>
+</body>
+
+</html>
