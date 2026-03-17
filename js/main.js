@@ -399,7 +399,7 @@ const initSocialFeed = () => {
         },
         { 
             type: 'video', 
-            url: 'https://images.unsplash.com/photo-1544161515-436cefb6579a?auto=format&fit=crop&q=80&w=800', 
+            url: 'assets/images/social-spa-reel.png', 
             link: 'https://www.instagram.com/reel/DU8dWqiDfiB/',
             views: '948' 
         },
