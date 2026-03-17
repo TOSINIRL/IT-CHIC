@@ -387,13 +387,13 @@ const initSocialFeed = () => {
     const mockPosts = [
         { 
             type: 'video', 
-            url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800', 
+            url: 'assets/images/social-grey-braids.png', 
             link: 'https://www.instagram.com/reel/DVTtb1Sjbd_/',
             views: '1.2k' 
         },
         { 
             type: 'video', 
-            url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800', 
+            url: 'assets/images/social-magenta-dress.jpg', 
             link: 'https://www.instagram.com/reel/DVL4sEnjegL/',
             views: '15.4k' 
         },
@@ -405,7 +405,7 @@ const initSocialFeed = () => {
         },
         { 
             type: 'video', 
-            url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800', 
+            url: 'assets/images/social-grey-beanie.png', 
             link: 'https://www.instagram.com/reel/DVEPBmngNTO/',
             views: '2.1k' 
         }
