@@ -97,11 +97,11 @@ const initHeroBackground = () => {
     // Array of background sources with associated content
     const backgrounds = [
         { type: 'video', src: 'assets/videos/hero-destinations.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Embark on extraordinary journeys curated for the discerning traveler. Experience the world through a lens of luxury, authenticity, and wonder.' },
-        { type: 'image', src: 'assets/images/hero-bg-oia.png', title: 'LIVE LAUGH EXPLORE', subtitle: 'Luxury Awaits', desc: 'Discover the hidden gems of the Aegean Sea with our curated luxury itineraries.' },
+        { type: 'image', src: 'assets/images/hero-bg-oia.png', title: 'IT CHIC TRAVELS', subtitle: 'Luxury Awaits', desc: 'Discover the hidden gems of the Aegean Sea with our curated luxury itineraries.' },
         { type: 'video', src: 'assets/videos/hero-santorini.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Experience the magic of Santorini sunsets from your private caldera villa.' },
-        { type: 'image', src: 'assets/images/hero-bg-live.png', title: 'LIVE', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Reconnect with your soul in the heart of Bali\'s tropical serenity.' },
+        { type: 'image', src: 'assets/images/hero-bg-live.png', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Reconnect with your soul in the heart of Bali\'s tropical serenity.' },
         { type: 'video', src: 'assets/videos/hero-bali.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: ' reconnection with your soul in the heart of Bali\'s tropical serenity.' },
-        { type: 'image', src: 'assets/images/hero-bg-coast.jpg', title: 'travel', subtitle: 'THE WORLD', desc: 'Elegance in every destination. Discover the IT Chic way.' },
+        { type: 'image', src: 'assets/images/hero-bg-coast.jpg', title: 'IT CHIC TRAVELS', subtitle: 'THE WORLD', desc: 'Elegance in every destination. Discover the IT Chic way.' },
         { type: 'video', src: 'assets/videos/hero-morocco.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'From Marrakech souks to Sahara dunes, immerse yourself in Moroccan magic.' }
     ];
 
