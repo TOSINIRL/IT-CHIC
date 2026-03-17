@@ -384,29 +384,46 @@ const initSocialFeed = () => {
     if (!feedContainer) return;
 
     // Simulation of recent posts from @itchictravels
-    // In production, this would fetch from an API like Behold.so or your own backend
     const mockPosts = [
-        { type: 'image', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800', likes: '1.2k', comments: '42' },
-        { type: 'video', url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800', views: '15.4k' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=800', likes: '948', comments: '18' },
-        { type: 'image', url: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&q=80&w=800', likes: '2.1k', comments: '64' }
+        { 
+            type: 'video', 
+            url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800', 
+            link: 'https://www.instagram.com/reel/DVTtb1Sjbd_/',
+            views: '1.2k' 
+        },
+        { 
+            type: 'video', 
+            url: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800', 
+            link: 'https://www.instagram.com/reel/DVL4sEnjegL/',
+            views: '15.4k' 
+        },
+        { 
+            type: 'video', 
+            url: 'https://images.unsplash.com/photo-1544161515-436cefb6579a?auto=format&fit=crop&q=80&w=800', 
+            link: 'https://www.instagram.com/reel/DU8dWqiDfiB/',
+            views: '948' 
+        },
+        { 
+            type: 'video', 
+            url: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800', 
+            link: 'https://www.instagram.com/reel/DVEPBmngNTO/',
+            views: '2.1k' 
+        }
     ];
 
     const createPostCard = (post, index) => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
+        card.href = post.link;
+        card.target = '_blank';
         card.className = `social-post-card glass-card ${index === 3 ? 'h-hide-mobile' : ''}`;
         card.setAttribute('data-animate', 'fade-up');
         card.setAttribute('data-delay', index * 100);
 
-        const overlayContent = post.type === 'video' 
-            ? `<span>👁️ ${post.views}</span>`
-            : `<span>❤️ ${post.likes}</span><span>💬 ${post.comments}</span>`;
-
         card.innerHTML = `
-            <div class="post-media ${post.type === 'video' ? 'tiktok-media' : ''}">
+            <div class="post-media tiktok-media">
                 <img src="${post.url}" alt="IT Chic Travels Social Post">
                 <div class="post-overlay">
-                    ${overlayContent}
+                    <span>👁️ ${post.views}</span>
                 </div>
             </div>
         `;
