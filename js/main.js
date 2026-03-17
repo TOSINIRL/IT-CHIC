@@ -83,52 +83,75 @@ const initHeroAnimation = () => {
 };
 
 // ============================================
-// VIDEO BACKGROUND ROTATION
+// HERO BACKGROUND ROTATION (Videos & Images)
 // ============================================
-const initVideoBackground = () => {
+const initHeroBackground = () => {
     const video = document.getElementById('heroVideo');
-    if (!video) return;
+    const imageContainer = document.getElementById('heroImage');
+    const title = document.getElementById('kineticTitle');
+    const subtitle = document.getElementById('heroSubtitle');
+    const description = document.querySelector('.hero-description');
+    
+    if (!video || !imageContainer) return;
 
-    // Array of destination video sources
-    const videoSources = [
-        'assets/videos/hero-destinations.mp4',
-        'assets/videos/hero-santorini.mp4',
-        'assets/videos/hero-bali.mp4',
-        'assets/videos/hero-morocco.mp4'
+    // Array of background sources with associated content
+    const backgrounds = [
+        { type: 'video', src: 'assets/videos/hero-destinations.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Embark on extraordinary journeys curated for the discerning traveler. Experience the world through a lens of luxury, authenticity, and wonder.' },
+        { type: 'image', src: 'assets/images/hero-bg-oia.png', title: 'LIVE LAUGH EXPLORE', subtitle: 'Luxury Awaits', desc: 'Discover the hidden gems of the Aegean Sea with our curated luxury itineraries.' },
+        { type: 'video', src: 'assets/videos/hero-santorini.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Experience the magic of Santorini sunsets from your private caldera villa.' },
+        { type: 'image', src: 'assets/images/hero-bg-live.png', title: 'LIVE', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Reconnect with your soul in the heart of Bali\'s tropical serenity.' },
+        { type: 'video', src: 'assets/videos/hero-bali.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: ' reconnection with your soul in the heart of Bali\'s tropical serenity.' },
+        { type: 'image', src: 'assets/images/hero-bg-coast.jpg', title: 'travel', subtitle: 'THE WORLD', desc: 'Elegance in every destination. Discover the IT Chic way.' },
+        { type: 'video', src: 'assets/videos/hero-morocco.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'From Marrakech souks to Sahara dunes, immerse yourself in Moroccan magic.' }
     ];
 
-    let currentVideoIndex = 0;
+    let currentIndex = 0;
 
-    // Rotate videos every 10 seconds with smooth transition
-    const rotateVideo = () => {
-        const nextIndex = (currentVideoIndex + 1) % videoSources.length;
+    const updateBackground = () => {
+        const nextIndex = (currentIndex + 1) % backgrounds.length;
+        const bg = backgrounds[nextIndex];
 
-        // Fade out
-        gsap.to(video, {
+        // Fade out current content
+        gsap.to([video, imageContainer, title, subtitle, description], {
             opacity: 0,
             duration: 1,
             onComplete: () => {
-                // Change source
-                video.src = videoSources[nextIndex];
-                video.load();
-                video.play();
-                currentVideoIndex = nextIndex;
+                // Update visuals
+                if (bg.type === 'video') {
+                    video.src = bg.src;
+                    video.load();
+                    video.play();
+                    video.style.opacity = 1;
+                    imageContainer.style.opacity = 0;
+                } else {
+                    imageContainer.style.backgroundImage = `url(${bg.src})`;
+                    imageContainer.style.opacity = 1;
+                    video.style.opacity = 0;
+                    video.pause();
+                }
 
-                // Fade in
-                gsap.to(video, {
+                // Update text
+                if (title) title.innerHTML = `<span class="text-line">${bg.title}</span>`;
+                if (subtitle) {
+                    subtitle.textContent = bg.subtitle;
+                    subtitle.style.display = bg.subtitle ? 'inline-block' : 'none';
+                }
+                if (description) description.textContent = bg.desc;
+
+                // Fade back in
+                gsap.to([bg.type === 'video' ? video : imageContainer, title, subtitle, description], {
                     opacity: 1,
-                    duration: 1
+                    duration: 1,
+                    stagger: 0.1
                 });
+                
+                currentIndex = nextIndex;
             }
         });
     };
 
-    // Rotate every 10 seconds (Only if we have multiple valid sources)
-    if (videoSources.some(src => !src.includes('hero-destinations.mp4') || src.length > 50)) {
-        setInterval(rotateVideo, 10000);
-    } else {
-        console.log('Video rotation disabled: No external sources provided.');
-    }
+    // Rotate every 10 seconds
+    setInterval(updateBackground, 10000);
 };
 
 // ============================================
@@ -354,22 +377,80 @@ const initMobileMenu = () => {
 };
 
 // ============================================
-// START YOUR JOURNEY BUTTON
+// DYNAMIC SOCIAL FEED (@itchictravels Instagram Simulation)
 // ============================================
-const initStartJourneyButton = () => {
-    const button = document.getElementById('startJourneyBtn');
-    if (!button) return;
+const initSocialFeed = () => {
+    const feedContainer = document.getElementById('instaFeed');
+    if (!feedContainer) return;
 
-    button.addEventListener('click', () => {
-        // Scroll to contact section or open booking modal
-        const contactSection = document.querySelector('#contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            // Open booking modal (implement as needed)
-            showNotification('Booking feature coming soon!', 'info');
-        }
-    });
+    // Simulation of recent posts from @itchictravels
+    // In production, this would fetch from an API like Behold.so or your own backend
+    const mockPosts = [
+        { type: 'image', url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800', likes: '1.2k', comments: '42' },
+        { type: 'video', url: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800', views: '15.4k' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1540206395-68808572332f?auto=format&fit=crop&q=80&w=800', likes: '948', comments: '18' },
+        { type: 'image', url: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&q=80&w=800', likes: '2.1k', comments: '64' }
+    ];
+
+    const createPostCard = (post, index) => {
+        const card = document.createElement('div');
+        card.className = `social-post-card glass-card ${index === 3 ? 'h-hide-mobile' : ''}`;
+        card.setAttribute('data-animate', 'fade-up');
+        card.setAttribute('data-delay', index * 100);
+
+        const overlayContent = post.type === 'video' 
+            ? `<span>👁️ ${post.views}</span>`
+            : `<span>❤️ ${post.likes}</span><span>💬 ${post.comments}</span>`;
+
+        card.innerHTML = `
+            <div class="post-media ${post.type === 'video' ? 'tiktok-media' : ''}">
+                <img src="${post.url}" alt="IT Chic Travels Social Post">
+                <div class="post-overlay">
+                    ${overlayContent}
+                </div>
+            </div>
+        `;
+
+        return card;
+    };
+
+    const updateFeed = () => {
+        // Step 1: Fade out old posts
+        gsap.to(feedContainer, {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => {
+                feedContainer.innerHTML = '';
+                
+                // Step 2: Simulate fetching new content
+                // We pick 4 random items to show "refresh" logic
+                const displayPosts = [...mockPosts]
+                    .sort(() => 0.5 - Math.random())
+                    .slice(0, 4);
+
+                displayPosts.forEach((post, index) => {
+                    const card = createPostCard(post, index);
+                    feedContainer.appendChild(card);
+                });
+
+                // Step 3: Fade back in
+                gsap.to(feedContainer, {
+                    opacity: 1,
+                    duration: 0.8
+                });
+
+                // Re-trigger scroll animations for new elements
+                if (window.ScrollTrigger) ScrollTrigger.refresh();
+            }
+        });
+    };
+
+    // Initial load
+    updateFeed();
+
+    // Regular Refresh: Every 1 hour 
+    // This keeps the site lightweight while ensuring content stays relatively current
+    setInterval(updateFeed, 3600000); 
 };
 
 // ============================================
@@ -457,6 +538,22 @@ const optimizePerformance = () => {
 };
 
 // ============================================
+// START YOUR JOURNEY BUTTON
+// ============================================
+const initStartJourneyButton = () => {
+    const button = document.getElementById('startJourneyBtn');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+        // Scroll to contact section
+        const contactSection = document.querySelector('#contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+};
+
+// ============================================
 // INITIALIZE ALL FEATURES
 // ============================================
 const init = () => {
@@ -469,15 +566,16 @@ const init = () => {
     // Initialize all features
     initNavigation();
     initHeroAnimation();
-    initVideoBackground();
+    initHeroBackground();
     initScrollAnimations();
     initLiquidButtons();
     initTestimonialsCarousel();
     initNewsletterForm();
     initMobileMenu();
     initStartJourneyButton();
+    initSocialFeed();
 
-    // Optional premium features (can be disabled for performance)
+    // Optional premium features
     if (window.innerWidth > 768) {
         initCursorTrail();
     }

@@ -156,28 +156,89 @@ button {
     object-fit: cover;
 }
 
-.logo-image-main {
+/* ============================================
+   LOGO STYLES
+   ============================================ */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    text-decoration: none;
+}
+
+.logo-icon-box {
+    width: 64px;
     height: 64px;
-    width: auto;
-    display: block;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-base);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    border: 2px solid var(--color-primary);
 }
 
-.logo-image-main:hover {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+.logo-image-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
-.nav-glass.scrolled .logo-image-main {
+.logo-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text-top {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-neutral-100);
+    letter-spacing: 0.02em;
+}
+
+.logo-text-bottom {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.nav-glass.scrolled .logo-text-top {
+    color: var(--color-neutral-800);
+}
+
+.nav-glass.scrolled .logo-text-bottom {
+    color: var(--color-neutral-500);
+}
+
+.nav-glass.scrolled .logo-icon-box {
+    width: 52px;
     height: 52px;
 }
 
-.logo-image-footer {
-    height: 100px;
-    width: auto;
-    display: block;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+.logo-link:hover .logo-icon-box {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.logo-link:hover .logo-text-top {
+    color: var(--color-primary-light);
 }
 
 /* ============================================
@@ -212,29 +273,6 @@ button {
     justify-content: space-between;
     gap: var(--space-lg);
 }
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-}
-
-.logo {
-    width: 48px;
-    height: 48px;
-    transition: transform var(--transition-base);
-}
-
-.nav-glass.scrolled .logo {
-    width: 40px;
-    height: 40px;
-}
-
-.logo:hover {
-    transform: rotate(5deg) scale(1.05);
-}
-
-/* Logo text removed in favor of unified SVG logo */
 
 .nav-links {
     display: flex;
@@ -439,10 +477,26 @@ button {
     z-index: 0;
 }
 
-.video-background video {
+.video-background video,
+.hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity var(--transition-slow);
+}
+
+.hero-image-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.hero-image-bg.active {
+    opacity: 1;
 }
 
 .video-overlay {
@@ -1432,6 +1486,155 @@ textarea.glass-input {
 
 .notification-error {
     background: var(--color-accent);
+}
+
+/* ============================================
+   SOCIAL FEED SECTION
+   ============================================ */
+.social-feed-section {
+    padding: var(--space-4xl) 0;
+    background: var(--color-neutral-950);
+}
+
+.social-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.social-badges {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+}
+
+.social-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.75rem 1.5rem;
+    color: var(--color-neutral-800);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    font-weight: 600;
+}
+
+.social-badge:hover {
+    background: var(--glass-bg-hover);
+    transform: translateY(-4px);
+}
+
+.badge-icon-box {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 4px;
+}
+
+.instagram-box {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 4px 12px rgba(214, 36, 159, 0.3);
+}
+
+.tiktok-box {
+    background: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-badge span {
+    color: var(--color-neutral-800);
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+.social-post-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
+.post-media {
+    width: 100%;
+    height: 100%;
+}
+
+.post-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.social-post-card:hover .post-media img {
+    transform: scale(1.1);
+}
+
+.post-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    backdrop-filter: blur(4px);
+}
+
+.social-post-card:hover .post-overlay {
+    opacity: 1;
+}
+
+.post-overlay span {
+    color: white;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+}
+
+.tiktok-media::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: all var(--transition-base);
+}
+
+.social-post-card:hover .tiktok-media::after {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .h-hide-mobile {
+        display: none;
+    }
 }
 
 /* ============================================

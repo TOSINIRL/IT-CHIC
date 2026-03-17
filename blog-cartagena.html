@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <style>
         .article-hero {
-            height: 60vh;
+            height: 70vh;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -41,34 +41,63 @@
 
         .article-container {
             max-width: 900px;
-            margin: -80px auto 100px;
-            padding: 60px;
+            margin: -100px auto 100px;
+            padding: 80px;
             background: white;
             position: relative;
             z-index: 10;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
         }
 
         .article-content {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1.4rem;
             line-height: 1.8;
             color: #333;
         }
 
         .article-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
             color: #1A1A1A;
         }
         
         .article-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin: 60px 0 30px;
             color: #1A1A1A;
+            border-bottom: 1px solid #EEE;
+            padding-bottom: 15px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 100;
+        }
+
+        .btn-back {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1A1A1A;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-5px);
+            background: #1A1A1A;
+            color: white;
         }
 
         @media (max-width: 768px) {

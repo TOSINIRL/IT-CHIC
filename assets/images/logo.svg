@@ -1,15 +1,27 @@
-<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Neutral Background -->
-    <rect width="400" height="120" rx="12" fill="#FAF9F6"/>
+<svg width="350" height="100" viewBox="0 0 350 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Transparent Background -->
     
-    <!-- Profile Icon -->
-    <g transform="translate(20, 20)">
-        <circle cx="40" cy="40" r="38" fill="#3D9B9D"/> <!-- Turquoise wrap base -->
-        <path d="M40 10C25 10 12 25 12 40C12 55 25 70 40 70C55 70 68 55 68 40C68 25 55 10 40 10Z" fill="#4B3621"/> <!-- Profile -->
-        <path d="M40 10C25 10 15 25 15 40C15 50 20 60 30 65C35 55 45 55 50 65C60 60 65 50 65 40C65 25 55 10 40 10Z" fill="#40B5B8"/> <!-- Headwrap detail -->
+    <!-- Profile Icon in Circle -->
+    <g transform="translate(10, 10)">
+        <!-- Circle Border -->
+        <circle cx="40" cy="40" r="39" stroke="#3D9B9D" stroke-width="2"/>
+        
+        <!-- Profile Face (Ebony Skin Tone) -->
+        <path d="M42 22C38 22 34 25 32 30C30 35 30 42 32 48C34 54 38 60 45 62C43 65 40 68 35 68C30 68 25 65 22 60L22 75C26 78 30 80 40 80C55 80 65 70 65 55C65 40 55 22 42 22Z" fill="#4B3621"/>
+        
+        <!-- Headwrap (Teal/Turquoise) -->
+        <path d="M42 15C32 15 22 22 18 35C15 45 18 55 25 62C22 55 20 45 22 38C24 30 30 25 38 22C45 20 55 22 62 28C65 32 68 38 68 45C68 35 60 20 48 15" fill="#3D9B9D"/>
+        <path d="M45 10C35 10 25 15 20 25C18 30 18 35 20 40C22 35 25 30 30 28C35 25 42 25 48 28C55 30 60 35 62 42C60 35 55 25 45 10Z" fill="#58B8BA"/>
+        
+        <!-- Airplane Icon (Teal Line Art) -->
+        <g transform="translate(55, 55) scale(0.6)">
+            <path d="M22 11L12 21L2 11L0 13L10 23L0 33L2 35L12 25L22 35L24 33L14 23L24 13L22 11Z" fill="#3D9B9D"/>
+            <!-- Simpler airplane -->
+            <path d="M30 15L10 15L5 25L10 25L15 20L25 20L25 30L20 30L30 40L40 30L35 30L35 20L45 20L50 25L55 25L50 15L30 15Z" fill="#3D9B9D"/>
+        </g>
     </g>
 
-    <!-- Logo Text -->
-    <text x="110" y="65" font-family="serif" font-size="32" font-weight="bold" fill="#333">IT CHIC TRAVELS</text>
-    <text x="110" y="90" font-family="sans-serif" font-size="10" font-weight="normal" fill="#666" letter-spacing="0.1em">MAKE MEMORIES | REMINISCE | REPEAT</text>
+    <!-- Logo Text (White for better contrast on dark hero, or dynamic) -->
+    <text x="100" y="55" font-family="Playfair Display, serif" font-size="28" font-weight="700" fill="#FFFFFF">IT CHIC TRAVELS</text>
+    <text x="100" y="78" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#EAEAEA" letter-spacing="0.15em">MAKE MEMORIES | REMINISCE | REPEAT</text>
 </svg>
