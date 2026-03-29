@@ -1,10 +1,43 @@
 // ============================================
-// IT CHIC TRAVELS V2.0 - INTERACTIVE FEATURES
-// Advanced Animations & User Experience
+// CONFIGURATION & GLOBAL STATE
 // ============================================
+// Replace this token with your generated token from Meta for Developers
+const INSTAGRAM_TOKEN = 'YOUR_GENERATED_TOKEN_FROM_META'; 
+let dynamicReels = []; // Stores fetched Instagram media (not used for hero)
 
-// Initialize GSAP
-gsap.registerPlugin(ScrollTrigger);
+// MOCK DATA FOR THE ULTIMATE PREMIUM EXPERIENCE (If no token is provided)
+const MOCK_INSTAGRAM_DATA = [
+    {
+        id: 'mock_1',
+        media_type: 'VIDEO',
+        media_url: 'assets/videos/hero-bali.mp4', 
+        thumbnail_url: 'assets/images/social-spa-reel.png',
+        permalink: 'https://www.instagram.com/itchictravels/?hl=en',
+        caption: 'Soul searching in the heart of Bali. 🌿✨ #ItChicTravels #BaliRetreat'
+    },
+    {
+        id: 'mock_2',
+        media_type: 'IMAGE',
+        media_url: 'assets/images/social-magenta-dress.jpg',
+        permalink: 'https://www.instagram.com/itchictravels/?hl=en',
+        caption: 'Dinner with a view in Amalfi. 🍷🍋 #LuxuryTravel #ItChicMoments'
+    },
+    {
+        id: 'mock_3',
+        media_type: 'VIDEO',
+        media_url: 'assets/videos/hero-santorini.mp4',
+        thumbnail_url: 'assets/images/social-grey-braids.png',
+        permalink: 'https://www.instagram.com/itchictravels/?hl=en',
+        caption: 'Santorini sunsets are just different. 🌅⛴️ #GreeceTravel #ItChic'
+    },
+    {
+        id: 'mock_4',
+        media_type: 'IMAGE',
+        media_url: 'assets/images/social-grey-beanie.png',
+        permalink: 'https://www.instagram.com/itchictravels/?hl=en',
+        caption: 'Alpine adventures in the Swiss Alps. 🏔️🎿 #WinterLuxury #TravelEnvy'
+    }
+];
 
 // ============================================
 // NAVIGATION SCROLL BEHAVIOR
@@ -62,10 +95,10 @@ const initHeroAnimation = () => {
     gsap.to(textLines, {
         opacity: 1,
         y: 0,
-        duration: 1.8,
-        stagger: 0.2,
+        duration: 2.2,
+        stagger: 0.25,
         ease: 'power4.out',
-        delay: 0.5
+        delay: 0.6
     });
 
     // Subtle scale breathing effect for "THE WORLD" part only after entrance
@@ -83,8 +116,9 @@ const initHeroAnimation = () => {
 };
 
 // ============================================
-// HERO BACKGROUND ROTATION (Videos & Images)
+// HERO BACKGROUND ROTATION
 // ============================================
+let heroRotationInterval;
 const initHeroBackground = () => {
     const video = document.getElementById('heroVideo');
     const imageContainer = document.getElementById('heroImage');
@@ -94,22 +128,24 @@ const initHeroBackground = () => {
     
     if (!video || !imageContainer) return;
 
-    // Array of background sources with associated content
-    const backgrounds = [
+    // Default luxury backgrounds (fallback & initial state)
+    const staticBackgrounds = [
         { type: 'video', src: 'assets/videos/hero-destinations.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Embark on extraordinary journeys curated for the discerning traveler. Experience the world through a lens of luxury, authenticity, and wonder.' },
         { type: 'image', src: 'assets/images/hero-bg-oia.png', title: 'IT CHIC TRAVELS', subtitle: 'Luxury Awaits', desc: 'Discover the hidden gems of the Aegean Sea with our curated luxury itineraries.' },
         { type: 'video', src: 'assets/videos/hero-santorini.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Experience the magic of Santorini sunsets from your private caldera villa.' },
-        { type: 'image', src: 'assets/images/hero-bg-live.png', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Reconnect with your soul in the heart of Bali\'s tropical serenity.' },
-        { type: 'video', src: 'assets/videos/hero-bali.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: ' reconnection with your soul in the heart of Bali\'s tropical serenity.' },
-        { type: 'image', src: 'assets/images/hero-bg-coast.jpg', title: 'IT CHIC TRAVELS', subtitle: 'THE WORLD', desc: 'Elegance in every destination. Discover the IT Chic way.' },
-        { type: 'video', src: 'assets/videos/hero-morocco.mp4', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'From Marrakech souks to Sahara dunes, immerse yourself in Moroccan magic.' }
+        { type: 'image', src: 'assets/images/hero-bg-live.png', title: 'IT CHIC TRAVELS', subtitle: 'Make Memories | Reminisce | Repeat', desc: 'Reconnect with your soul in the heart of Bali\'s tropical serenity.' }
     ];
 
     let currentIndex = 0;
 
+    const getNextBackground = () => {
+        // Always use the premium curated static backgrounds for the Hero slideshow
+        return staticBackgrounds[currentIndex % staticBackgrounds.length];
+    };
+
     const updateBackground = () => {
-        const nextIndex = (currentIndex + 1) % backgrounds.length;
-        const bg = backgrounds[nextIndex];
+        currentIndex++;
+        const bg = getNextBackground();
 
         // Fade out current content
         gsap.to([video, imageContainer, title, subtitle, description], {
@@ -120,7 +156,7 @@ const initHeroBackground = () => {
                 if (bg.type === 'video') {
                     video.src = bg.src;
                     video.load();
-                    video.play();
+                    video.play().catch(e => console.warn('Video play blocked:', e));
                     video.style.opacity = 1;
                     imageContainer.style.opacity = 0;
                 } else {
@@ -144,14 +180,22 @@ const initHeroBackground = () => {
                     duration: 1,
                     stagger: 0.1
                 });
-                
-                currentIndex = nextIndex;
             }
         });
     };
 
-    // Rotate every 10 seconds
-    setInterval(updateBackground, 10000);
+    // If called again (e.g. after Instagram data loads), reset index so social content leads
+    if (heroRotationInterval) {
+        clearInterval(heroRotationInterval);
+        currentIndex = 0;
+    }
+
+    // Ensure initial video plays if src already set in HTML
+    if (video.querySelector('source') || video.src) {
+        video.play().catch(e => console.warn('Autoplay blocked:', e));
+    }
+
+    heroRotationInterval = setInterval(updateBackground, 10000);
 };
 
 // ============================================
@@ -173,11 +217,11 @@ const initScrollAnimations = () => {
                 onEnter: () => element.classList.add('animated'),
                 onLeaveBack: () => element.classList.remove('animated')
             },
-            y: 60,
+            y: 30,
             opacity: 0,
-            duration: 0.8,
+            duration: 1.2,
             delay: delay / 1000,
-            ease: 'power3.out'
+            ease: 'power2.out'
         });
     });
 
@@ -377,43 +421,15 @@ const initMobileMenu = () => {
 };
 
 // ============================================
-// DYNAMIC SOCIAL FEED (@itchictravels Instagram Simulation)
+// DYNAMIC SOCIAL FEED & HERO UPDATE
 // ============================================
 const initSocialFeed = () => {
     const feedContainer = document.getElementById('instaFeed');
     if (!feedContainer) return;
 
-    // Simulation of recent posts from @itchictravels
-    const mockPosts = [
-        { 
-            type: 'video', 
-            url: 'assets/images/social-grey-braids.png', 
-            link: 'https://www.instagram.com/reel/DVTtb1Sjbd_/',
-            views: '1.2k' 
-        },
-        { 
-            type: 'video', 
-            url: 'assets/images/social-magenta-dress.jpg', 
-            link: 'https://www.instagram.com/reel/DVL4sEnjegL/',
-            views: '15.4k' 
-        },
-        { 
-            type: 'video', 
-            url: 'assets/images/social-spa-reel.png', 
-            link: 'https://www.instagram.com/reel/DU8dWqiDfiB/',
-            views: '948' 
-        },
-        { 
-            type: 'video', 
-            url: 'assets/images/social-grey-beanie.png', 
-            link: 'https://www.instagram.com/reel/DVEPBmngNTO/',
-            views: '2.1k' 
-        }
-    ];
-
     const createPostCard = (post, index) => {
         const card = document.createElement('a');
-        card.href = post.link;
+        card.href = post.permalink;
         card.target = '_blank';
         card.className = `social-post-card glass-card ${index === 3 ? 'h-hide-mobile' : ''}`;
         card.setAttribute('data-animate', 'fade-up');
@@ -421,9 +437,9 @@ const initSocialFeed = () => {
 
         card.innerHTML = `
             <div class="post-media tiktok-media">
-                <img src="${post.url}" alt="IT Chic Travels Social Post">
+                <img src="${post.thumbnail_url || post.media_url}" alt="IT Chic Travels Social Post">
                 <div class="post-overlay">
-                    <span>👁️ ${post.views}</span>
+                    <span class="view-text">WATCH ON INSTAGRAM</span>
                 </div>
             </div>
         `;
@@ -431,43 +447,53 @@ const initSocialFeed = () => {
         return card;
     };
 
-    const updateFeed = () => {
-        // Step 1: Fade out old posts
-        gsap.to(feedContainer, {
-            opacity: 0,
-            duration: 0.5,
-            onComplete: () => {
-                feedContainer.innerHTML = '';
-                
-                // Step 2: Simulate fetching new content
-                // We pick 4 random items to show "refresh" logic
-                const displayPosts = [...mockPosts]
-                    .sort(() => 0.5 - Math.random())
-                    .slice(0, 4);
-
-                displayPosts.forEach((post, index) => {
-                    const card = createPostCard(post, index);
-                    feedContainer.appendChild(card);
-                });
-
-                // Step 3: Fade back in
-                gsap.to(feedContainer, {
-                    opacity: 1,
-                    duration: 0.8
-                });
-
-                // Re-trigger scroll animations for new elements
-                if (window.ScrollTrigger) ScrollTrigger.refresh();
+    const fetchInstagramFeed = async () => {
+        try {
+            // Update Social Grid UI Fallback or Real Data
+            const useMockData = INSTAGRAM_TOKEN === 'YOUR_GENERATED_TOKEN_FROM_META';
+            
+            if (useMockData) {
+                console.warn('🌍 IT Chic: Instagram Token is placeholder. Feed using PREMIUM MOCK DATA fallback.');
+                dynamicReels = MOCK_INSTAGRAM_DATA;
+            } else {
+                const response = await fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink,thumbnail_url,caption&access_token=${INSTAGRAM_TOKEN}`);
+                const json = await response.json();
+                if (!json.data) throw new Error('No data received from Instagram API');
+                dynamicReels = json.data.filter(item => item.media_type === 'VIDEO' || item.media_type === 'IMAGE');
             }
-        });
+
+            // Take the top 4 for the social grid
+            const gridPosts = dynamicReels.slice(0, 4);
+
+            // Update Social Grid UI
+            gsap.to(feedContainer, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    feedContainer.innerHTML = '';
+                    gridPosts.forEach((post, index) => {
+                        const card = createPostCard(post, index);
+                        feedContainer.appendChild(card);
+                    });
+                    gsap.to(feedContainer, { opacity: 1, duration: 0.8 });
+                    if (window.ScrollTrigger) ScrollTrigger.refresh();
+                }
+            });
+
+            // Social feed loaded — do NOT update hero (hero uses curated static backgrounds only)
+            console.log('🌍 IT Chic: Social feed loaded. Hero stays on curated rotation.');
+
+        } catch (err) {
+            console.error("Feed error:", err);
+            feedContainer.innerHTML = '<p style="color:rgba(255,255,255,0.5); grid-column: 1/-1; padding: 40px;">Unable to load feed. Check Token.</p>';
+        }
     };
 
     // Initial load
-    updateFeed();
+    fetchInstagramFeed();
 
     // Regular Refresh: Every 1 hour 
-    // This keeps the site lightweight while ensuring content stays relatively current
-    setInterval(updateFeed, 3600000); 
+    setInterval(fetchInstagramFeed, 3600000); 
 };
 
 // ============================================
@@ -622,3 +648,4 @@ if (typeof module !== 'undefined' && module.exports) {
         showNotification
     };
 }
+

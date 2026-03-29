@@ -111,6 +111,10 @@
             }
         }
     </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+    <link rel="alternate icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
 
 <body>
@@ -172,52 +176,51 @@
             <p>After pickups, we set off for the Pink sea tour, about 1.5 hours away. Connected Spotify to Bluetooth and we had an Afrobeats party. Naija stand up! P-Square "personally" track came on my Spotify playlist and Eduardo knew the lyrics and said this is a classic. Meanwhile he sang to it with his spotty English! ??</p>
 
 
-            <footer class="footer">
-                <div class="container" style="text-align: center; padding: 60px 0;">
-                    <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights
-                        reserved.</p>
-                </div>
-            </footer>
+        </div>
+    </article>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-            <script>
-                gsap.registerPlugin(ScrollTrigger);
+    <footer class="footer">
+        <div class="container" style="text-align: center; padding: 60px 0;">
+            <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights reserved.</p>
+        </div>
+    </footer>
 
-                // Hero Parallax
-                gsap.to('.article-hero img', {
-                    scrollTrigger: {
-                        trigger: '.article-hero',
-                        start: 'top top',
-                        end: 'bottom top',
-                        scrub: true
-                    },
-                    y: 100,
-                    ease: 'none'
-                });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-                // Entrance Animation
-                gsap.from('.article-container', {
-                    y: 60,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: 'power3.out',
-                    delay: 0.2
-                });
+        gsap.to('.article-hero img', {
+            scrollTrigger: {
+                trigger: '.article-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            },
+            y: 100,
+            ease: 'none'
+        });
 
-                // Staggered reveal
-                gsap.from('.article-content > *', {
-                    scrollTrigger: {
-                        trigger: '.article-content',
-                        start: 'top 80%'
-                    },
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: 'power2.out'
-                });
-            </script>
+        gsap.from('.article-container', {
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.2
+        });
+
+        gsap.from('.article-content > *', {
+            scrollTrigger: {
+                trigger: '.article-content',
+                start: 'top 80%'
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+    </script>
 </body>
 
 </html>

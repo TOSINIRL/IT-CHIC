@@ -111,6 +111,10 @@
             }
         }
     </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+    <link rel="alternate icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
 
 <body>
@@ -152,52 +156,55 @@
             <p>Final thought: It’s a nice spot for a beach break within the USA. However, if you have a valid passport
                 you can do a lot more on the beach with same funds and time.</p>
 
-            <footer class="footer">
-                <div class="container" style="text-align: center; padding: 60px 0;">
-                    <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights
-                        reserved.</p>
-                </div>
-            </footer>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-            <script>
-                gsap.registerPlugin(ScrollTrigger);
+        </div>
+    </article>
 
-                // Hero Parallax
-                gsap.to('.article-hero img', {
-                    scrollTrigger: {
-                        trigger: '.article-hero',
-                        start: 'top top',
-                        end: 'bottom top',
-                        scrub: true
-                    },
-                    y: 100,
-                    ease: 'none'
-                });
+    <footer class="footer">
+        <div class="container" style="text-align: center; padding: 60px 0;">
+            <p style="font-family: 'Inter', sans-serif; color: #888;">&copy; 2026 IT Chic Travels. All rights reserved.</p>
+        </div>
+    </footer>
 
-                // Entrance Animation
-                gsap.from('.article-container', {
-                    y: 60,
-                    opacity: 0,
-                    duration: 1.2,
-                    ease: 'power3.out',
-                    delay: 0.2
-                });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-                // Staggered reveal
-                gsap.from('.article-content > *', {
-                    scrollTrigger: {
-                        trigger: '.article-content',
-                        start: 'top 80%'
-                    },
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: 'power2.out'
-                });
-            </script>
+        // Hero Parallax
+        gsap.to('.article-hero img', {
+            scrollTrigger: {
+                trigger: '.article-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            },
+            y: 100,
+            ease: 'none'
+        });
+
+        // Entrance Animation
+        gsap.from('.article-container', {
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.2
+        });
+
+        // Staggered reveal
+        gsap.from('.article-content > *', {
+            scrollTrigger: {
+                trigger: '.article-content',
+                start: 'top 80%'
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'power2.out'
+        });
+    </script>
 </body>
 
 </html>
